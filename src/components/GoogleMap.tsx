@@ -1,6 +1,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin } from 'lucide-react';
+const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
 
 interface Volunteer {
   id: number;
