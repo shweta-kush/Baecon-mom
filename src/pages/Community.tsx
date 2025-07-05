@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Users, Heart, MessageCircle, Plus, Search, Star, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useToast } from '@/hooks/use-toast';
+import type { CheckedState } from '@radix-ui/react-checkbox';
 
 const Community = () => {
   const { toast } = useToast();
@@ -73,6 +73,10 @@ const Community = () => {
       title: "Thanks for the support!",
       description: "Your upvote helps other moms find helpful content.",
     });
+  };
+
+  const handleAnonymousChange = (checked: CheckedState) => {
+    setIsAnonymous(checked === true);
   };
 
   const getTagColor = (tag: string) => {
@@ -148,7 +152,7 @@ const Community = () => {
             <Checkbox 
               id="anonymous" 
               checked={isAnonymous}
-              onCheckedChange={setIsAnonymous}
+              onCheckedChange={handleAnonymousChange}
               className="border-purple-300"
             />
             <label htmlFor="anonymous" className="text-sm text-gray-600">
