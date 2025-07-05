@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,20 +40,18 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom wellness colors */
+    --pink-25: 330 100% 98%;
+    --blue-25: 220 100% 98%;
+    --purple-25: 280 100% 98%;
   }
 
   .dark {
@@ -100,6 +99,21 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Custom utility classes for the wellness platform */
+@layer utilities {
+  .bg-pink-25 {
+    background-color: hsl(var(--pink-25));
+  }
+  
+  .bg-blue-25 {
+    background-color: hsl(var(--blue-25));
+  }
+  
+  .bg-purple-25 {
+    background-color: hsl(var(--purple-25));
   }
 }
