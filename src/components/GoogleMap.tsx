@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, User } from 'lucide-react';
 
@@ -18,6 +17,12 @@ interface GoogleMapProps {
   volunteers: Volunteer[];
   onVolunteerClick: (volunteer: Volunteer) => void;
   apiKey: string;
+}
+
+declare global {
+  interface Window {
+    google: typeof google;
+  }
 }
 
 const GoogleMap: React.FC<GoogleMapProps> = ({ volunteers, onVolunteerClick, apiKey }) => {
@@ -73,7 +78,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ volunteers, onVolunteerClick, api
 
   // Initialize map when API is loaded and user location is available
   useEffect(() => {
-    if (!isLoaded || !userLocation || !mapRef.current) return;
+    if (!isLoaded || !userLocation || !mapRef.current || !window.google) return;
 
     const mapInstance = new window.google.maps.Map(mapRef.current, {
       center: userLocation,
