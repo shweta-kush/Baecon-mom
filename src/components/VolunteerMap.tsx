@@ -201,7 +201,7 @@ const VolunteerMap = () => {
           <div className="text-sm text-green-600">Avg Rating</div>
         </div>
         <div className="bg-pink-50 rounded-2xl p-4">
-          <div className="text-2xl font-bold text-pink-600">< 1mi</div>
+          <div className="text-2xl font-bold text-pink-600">&lt; 1mi</div>
           <div className="text-sm text-pink-600">Avg Distance</div>
         </div>
       </div>
@@ -214,7 +214,7 @@ const VolunteerMap = () => {
           <p>2. Check their profiles, ratings, and availability</p>
           <p>3. Send a care request with your needs</p>
           <p>4. Meet in a safe public location for handover</p>
-          <p>5. Enjoy your well-deserved break! 💆‍♀️</p>
+          <p>5. Enjoy your well-deserved break!</p>
         </div>
       </div>
     </div>
