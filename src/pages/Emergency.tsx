@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Shield, Phone, Plus, Edit2, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
+import VolunteerMap from '@/components/VolunteerMap';
 
 const Emergency = () => {
   const { toast } = useToast();
@@ -53,6 +54,9 @@ const Emergency = () => {
           <p>• All information is encrypted and secure</p>
         </div>
       </div>
+
+      {/* Volunteer Chill Care Map */}
+      <VolunteerMap />
 
       {/* Trusted Contacts */}
       <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
