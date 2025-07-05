@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, User } from 'lucide-react';
 
@@ -17,12 +18,6 @@ interface GoogleMapProps {
   volunteers: Volunteer[];
   onVolunteerClick: (volunteer: Volunteer) => void;
   apiKey: string;
-}
-
-declare global {
-  interface Window {
-    google: typeof google;
-  }
 }
 
 const GoogleMap: React.FC<GoogleMapProps> = ({ volunteers, onVolunteerClick, apiKey }) => {
