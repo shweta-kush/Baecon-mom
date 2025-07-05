@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { MapPin, User } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 interface Volunteer {
   id: number;
@@ -28,7 +28,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ volunteers, onVolunteerClick, api
 
   // Load Google Maps API
   useEffect(() => {
-    if (window.google && window.google.maps) {
+    if ((window as any).google && (window as any).google.maps) {
       setIsLoaded(true);
       return;
     }
@@ -73,9 +73,10 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ volunteers, onVolunteerClick, api
 
   // Initialize map when API is loaded and user location is available
   useEffect(() => {
-    if (!isLoaded || !userLocation || !mapRef.current || !window.google) return;
+    if (!isLoaded || !userLocation || !mapRef.current || !(window as any).google) return;
 
-    const mapInstance = new window.google.maps.Map(mapRef.current, {
+    const google = (window as any).google;
+    const mapInstance = new google.maps.Map(mapRef.current, {
       center: userLocation,
       zoom: 13,
       styles: [
@@ -90,12 +91,12 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ volunteers, onVolunteerClick, api
     setMap(mapInstance);
 
     // Add user location marker
-    new window.google.maps.Marker({
+    new google.maps.Marker({
       position: userLocation,
       map: mapInstance,
       title: 'Your Location',
       icon: {
-        path: window.google.maps.SymbolPath.CIRCLE,
+        path: google.maps.SymbolPath.CIRCLE,
         scale: 8,
         fillColor: '#4285F4',
         fillOpacity: 1,
@@ -106,12 +107,12 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ volunteers, onVolunteerClick, api
 
     // Add volunteer markers
     volunteers.forEach((volunteer) => {
-      const marker = new window.google.maps.Marker({
+      const marker = new google.maps.Marker({
         position: volunteer.location,
         map: mapInstance,
         title: volunteer.name,
         icon: {
-          path: window.google.maps.SymbolPath.CIRCLE,
+          path: google.maps.SymbolPath.CIRCLE,
           scale: 12,
           fillColor: '#EC4899',
           fillOpacity: 1,
@@ -126,7 +127,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ volunteers, onVolunteerClick, api
       });
 
       // Create info window
-      const infoWindow = new window.google.maps.InfoWindow({
+      const infoWindow = new google.maps.InfoWindow({
         content: `
           <div style="padding: 8px; min-width: 200px;">
             <h3 style="margin: 0 0 8px 0; color: #1f2937; font-size: 16px; font-weight: 600;">${volunteer.name}</h3>
