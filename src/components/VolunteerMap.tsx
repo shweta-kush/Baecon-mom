@@ -88,7 +88,7 @@ const VolunteerMap = () => {
         <GoogleMap 
           volunteers={volunteers}
           onVolunteerClick={handleVolunteerClick}
-          apiKey="AIzaSyD9pZqPXJcs_Gr_XfSyv7WorJg1ICgCZ2s"
+          apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
         />
       </div>
 

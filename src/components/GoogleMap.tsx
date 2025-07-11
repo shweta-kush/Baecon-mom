@@ -1,7 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { MapPin } from 'lucide-react';
-const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 
 interface Volunteer {
@@ -69,7 +68,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ volunteers, onVolunteerClick, api
       );
     } else {
       // Fallback to Seattle coordinates
-      setUserLocation({ lat: 47.6062, lng: -122.3321 });
+      setUserLocation({ lat: 71.6062, lng: -22.3321 });
     }
   }, []);
 
