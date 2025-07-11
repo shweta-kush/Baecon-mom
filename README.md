@@ -4,6 +4,8 @@
 
 **URL**: https://lovable.dev/projects/acbe3d84-fdb9-40b5-b265-f75bad2d5a8c
 
+**published** : https://baecon-mom.lovable.app
+
 ## How can I edit this code?
 
 There are several ways of editing your application.
