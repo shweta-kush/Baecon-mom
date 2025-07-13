@@ -35,7 +35,7 @@ const VolunteerMap = () => {
       verified: true,
       distance: '0.8 miles',
       availability: 'Next 3 hours',
-      location: { lat: 47.6062, lng: -122.3321 }
+      location: { lat: 39.11261, lng: -100.35875 }
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ const VolunteerMap = () => {
       verified: true,
       distance: '1.2 miles',
       availability: 'Next 2 hours',
-      location: { lat: 47.6100, lng: -122.3340 }
+      location: { lat: 39.11251, lng: -100.35875 }
     },
     {
       id: 3,
